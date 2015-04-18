@@ -1,0 +1,2 @@
+module ShredzillaHelper
+end
