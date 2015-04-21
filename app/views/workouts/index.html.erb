@@ -1,0 +1,31 @@
+
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Ravi+Prakash' rel='stylesheet' type='text/css'>
+</head>
+
+
+<h1 class="text-uppercase">Shredzilla</h1>
+
+<h2>WOD</h2>
+<table class="table table-bordered">
+<tr>
+    <td><strong>Exercise</strong></td>
+    <td><strong>Hold</strong></td>
+    <td><strong>Reps</strong></td>
+    <td><strong>Sets</strong></td>
+    <td><strong>Timer</strong></td>
+</tr>
+<% @workout.each do |exercise| %>
+<tr>
+   <td><%= exercise.name %></td>
+   <td><%= exercise.hold %></td>
+   <td><%= exercise.reps %></td>
+   <td><%= exercise.sets %></td>
+   <td><%= exercise.timer %></td>
+</tr>
+<% end %>
+</table>
+
+
+
+

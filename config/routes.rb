@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'shredzilla#index'
+  root 'workouts#index'
 
-  get 'shredzilla/index'
+  # get 'workouts/index'
 
-  get 'shredzilla/new'
+  # get 'workoutsnew'
 
-  get 'shredzilla/show'
+  # get 'workouts/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :shredzilla
+    resources :workouts do
+      resources :exercises
+    end
 
   # Example resource route with options:
   #   resources :products do
