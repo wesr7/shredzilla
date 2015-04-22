@@ -6,10 +6,9 @@ class CreateExercises < ActiveRecord::Migration
       t.string :reps
       t.string :sets
       t.string :timer
-      t.integer :day
-      t.belongs_to :workout, index: true
+      t.references :workout, index: true, foreign_key: true
+
       t.timestamps null: false
     end
   end
 end
-

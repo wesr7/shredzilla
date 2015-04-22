@@ -1,29 +1,16 @@
 Rails.application.routes.draw do
 
-  root 'workouts#index'
+root 'application#index'
 
-  # get 'workouts/index'
+match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 
-  # get 'workoutsnew'
+match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
-  # get 'workouts/show'
+match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :workouts do
-      resources :exercises
-    end
+ resources :users do
+    resources :workouts
+end
 
   # Example resource route with options:
   #   resources :products do

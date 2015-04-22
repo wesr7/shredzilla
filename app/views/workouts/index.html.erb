@@ -17,7 +17,7 @@
 
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Log Out</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -33,9 +33,12 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="jumbotron">
+  <div class="container text-center text-uppercase">
+    <h1>Workout of The Day</h1>
+  </div>
+</div>
 
-
-<h2>WOD</h2>
 <table class="table table-bordered">
 <tr>
     <td><strong>Exercise</strong></td>
@@ -54,6 +57,19 @@
 </tr>
 <% end %>
 </table>
+
+<%= form_for :workouts do |f| %>
+<p>
+  <%= f.label :note %><br>
+  <textarea class="form-control" rows="4"><% f.text_area :note %></textarea>
+</p>
+
+<p>
+  <%= f.submit  "Save Note"%>
+</p>
+  <% end %>
+
+
 
 
 
