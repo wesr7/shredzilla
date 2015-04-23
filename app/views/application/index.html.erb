@@ -1,13 +1,18 @@
- <link href='https://fonts.googleapis.com/css?family=Ravi+Prakash' rel='stylesheet' type='text/css'>
 
-<body>
-<div class="jumbotron">
-   <% if current_user %>
-        Welcome <strong><%=current_user.name %></strong>!
-        <%= link_to 'Sign out', signout_path %>
-        <% else %>
-      <%= link_to 'Sign in with Facebook', "/auth/facebook" %>
-        <% end %>
 
-</div>
+ <body>
+    <div class="container">
+        <div class="row-sm">
+            <div class="col">
+                <div class="jumbotron text-center">
+                 <% if current_user %>
+                 Welcome <strong><%=current_user.name %></strong>!
+                 <%= link_to 'Sign out', signout_path %>
+                 <% else %>
+                <p id="link_fb"><%= link_to 'Sign in with Facebook', "/auth/facebook" %></p>
+                 <% end %>
+             </div>
+         </div>
+     </div>
+ </div>
 </body>
