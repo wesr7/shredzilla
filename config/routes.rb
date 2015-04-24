@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 root 'application#index'
 
+get '/workout_note' => 'workouts#update'
+
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
