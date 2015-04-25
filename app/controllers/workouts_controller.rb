@@ -1,51 +1,64 @@
 class WorkoutsController < ApplicationController
 
-    def index
-        @workout = Exercise.where("workout_id = 1", params[:workout])
-        @workout_id = @workout.first.workout.id
-    end
-
-    def new
-    @workout = Exercise.where("workout_id = 1", params[:workout])
-    @workout_id = @workout.first.workout.id
+  def index
+    @workout = Workout.all
   end
 
-  def show
-    @workout = Exercise.where("workout_id = 1", params[:workout])
-        @workout_id = @workout.first.workout.id
+ def show
+    @workout = Workout.find(params[:id])
+    @exercise = Exercise.new
+    @exercises = @workout.exercises
   end
 
-
-     def create
-        @workout = Workout.new(params[:note])
-        if @workout.save
-          redirect_to user_workouts_path
-      else
-          render "new"
-      end
+  def new
+    @workout = Workout.new
   end
 
-  def update
-    workout = Workout.find(params[:workout_id])
-    workout_note = params[:note]
-    if workout.save
-        redirect_to 'show'
+  def create
+    @workout = Workout.new(workout_params)
+    @workout.user = current_user
+    if @workout.save
+      redirect_to workout_path(@workout)
     else
-         # add error message/validation of some sort
-    render new_user_workouts_path
-        end
-    end
+      render "new"
+  end
+end
 
-
-  #     def update
-  #   @workout = Workout.find(params[:id])
-
-  #   if @workout.update(params[:note])
-  #     redirect_to @workout
-  #   else
-  #     render 'edit'
-  #   end
-  # end
+def edit
+  @workout = Workout.find(params[:id])
+  @exercise = Exercise.find(params[:id])
 
 end
+
+
+  def update
+    @workout = Workout.find(params[:id])
+    if @workout.update_attributes(workout_params)
+    redirect_to workout_path
+  else
+    render '/'
+  end
+  end
+
+  def destroy
+    @workout = Workout.find(params[:id])
+    @exercises = Exercise.find(params[:id])
+    if @workout.destroy
+    redirect_to workouts_path
+  else
+      redirect_to workout_path
+    end
+  end
+
+
+
+     private
+     def workout_params
+      params.require(:workout).permit(:note, :name)
+    end
+
+
+  end
+
+
 

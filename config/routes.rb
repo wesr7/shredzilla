@@ -2,17 +2,17 @@ Rails.application.routes.draw do
 
 root 'application#index'
 
-get '/workout_note' => 'workouts#update'
-
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
- resources :users do
-    resources :workouts
+resources :users
+resources :workouts do
+  resources :exercises
 end
+
 
   # Example resource route with options:
   #   resources :products do

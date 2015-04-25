@@ -5,41 +5,22 @@
 
 <div class="jumbotron">
   <div class="container text-center text-uppercase">
-    <h1>Workout of The Day</h1>
+    <h1>Choose Your Workout</h1>
   </div>
 </div>
+<div></div>
+<div class="container">
+  <% @workout.each do |w| %>
+  <p><%= w.name %></p>
+  <p><%= w.day %></p>
+  <p><%= w.note %></p>
+  <%= link_to 'Check it out', workout_path(w) %>
 
-<table class="table table-bordered">
-<tr>
-    <td><strong>Exercise</strong></td>
-    <td><strong>Hold</strong></td>
-    <td><strong>Reps</strong></td>
-    <td><strong>Sets</strong></td>
-    <td><strong>Timer</strong></td>
-</tr>
-<% @workout.each do |exercise| %>
-<tr>
-   <td><%= exercise.name %></td>
-   <td><%= exercise.hold %></td>
-   <td><%= exercise.reps %></td>
-   <td><%= exercise.sets %></td>
-   <td><%= exercise.timer %></td>
-</tr>
-<% end %>
-</table>
-
-<%= form_tag("/workout_note", method: "get") do %>
-<p>
-<%= hidden_field_tag 'workout_id', @workout_id %>
-  <%= label_tag :note %><br>
-  <textarea class="form-control" rows="4"><%= text_area_tag :note %></textarea>
-</p>
-
-<p>
-  <%= submit_tag  "Save Note" %>
-</p>
   <% end %>
+</div>
 
+<p><%= link_to 'Record Your HIIT', new_workout_path %></p>
 
 <%= params %>
 
+<!-- modal edit note -->

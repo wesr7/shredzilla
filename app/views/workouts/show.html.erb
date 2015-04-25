@@ -1,3 +1,6 @@
+<h1><%=@workout.name %></h1>
+
+
 <table class="table table-bordered">
 <tr>
     <td><strong>Exercise</strong></td>
@@ -6,21 +9,36 @@
     <td><strong>Sets</strong></td>
     <td><strong>Timer</strong></td>
 </tr>
-<% @workout.each do |exercise| %>
+<% @exercises.each do |exercise| %>
 <tr>
    <td><%= exercise.name %></td>
    <td><%= exercise.hold %></td>
    <td><%= exercise.reps %></td>
    <td><%= exercise.sets %></td>
    <td><%= exercise.timer %></td>
+   <td><%= link_to "Edit Exercise", [exercise.workout, exercise] %></td>
+   <td><%= link_to "Delete Exercise", [exercise.workout, exercise],
+   method: :delete,
+   data: { confirm: 'Are you sure?' } %></td>
 </tr>
 <% end %>
 </table>
 
-<%= @workout_note %>
+<%= render "exercise_form" %>
 
-  <%= submit_tag  "Save Note" %>
-</p>
+<%= form_for @workout, url: "#{params[:id]}" do |f| %>
+
+  <%= @workout.note %>
+  <p><%= f.submit  "Edit Note" %></p>
+
+  <% end %>
+
+  <p><%= link_to 'Submit Your HIIT', workouts_path %></p>
+ <p><%= link_to 'Delete Your HIIT', workout_path(@workout),
+ method: :delete,
+ data: { confirm: 'Are you sure?' } %></p>
+
+
 
 
 

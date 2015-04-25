@@ -5,43 +5,16 @@
 
 <div class="jumbotron">
   <div class="container text-center text-uppercase">
-    <h1>Workout of The Day</h1>
+    <h1>Record Your HIIT</h1>
   </div>
 </div>
 
-<table class="table table-bordered">
-<tr>
-    <td><strong>Exercise</strong></td>
-    <td><strong>Hold</strong></td>
-    <td><strong>Reps</strong></td>
-    <td><strong>Sets</strong></td>
-    <td><strong>Timer</strong></td>
-</tr>
-<% @workout.each do |exercise| %>
-<tr>
-   <td><%= exercise.name %></td>
-   <td><%= exercise.hold %></td>
-   <td><%= exercise.reps %></td>
-   <td><%= exercise.sets %></td>
-   <td><%= exercise.timer %></td>
-</tr>
+<%= form_for @workout do |w| %>
+    <p>Name:<%= w.text_field :name %></p>
+    <p>Note:<%= w.text_area :note %></p>
+    <%= w.submit 'Add Workout' %>
 <% end %>
-</table>
 
-<%= form_tag("/workout_note", method: "get") do %>
-<p>
-<%= hidden_field_tag 'workout_id', @workout_id %>
-  <%= label_tag :note %><br>
-<%= text_area_tag :note %>
-</p>
-
-<p>
-  <%= submit_tag  "Save Note" %>
-</p>
-  <% end %>
-
-
-<%= params %>
 
 
 

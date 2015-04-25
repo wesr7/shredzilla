@@ -9,13 +9,15 @@ workout_1 = Workout.create(
     name: "Monday",
     day: 1,
     text: nil,
-    note: nil
+    note: nil,
     )
+
 workout_2 = Workout.create(
     name: "Tuesday",
     day: 2,
     text: nil,
-    note: nil
+    note: nil,
+
     )
 
 Exercise.create(
@@ -24,7 +26,7 @@ Exercise.create(
     reps: "20",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 1
+
     )
 
 Exercise.create(
@@ -33,7 +35,7 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 1
+
     )
 
 Exercise.create(
@@ -42,7 +44,7 @@ Exercise.create(
     reps: "10",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 1
+
     )
 
 Exercise.create(
@@ -51,7 +53,7 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 1
+
     )
 
 Exercise.create(
@@ -60,7 +62,7 @@ Exercise.create(
     reps: "1 R/L",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 1
+
     )
 
 Exercise.create(
@@ -69,7 +71,7 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 1
+
     )
 
 Exercise.create(
@@ -78,7 +80,7 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 1
+
     )
 
 Exercise.create(
@@ -87,7 +89,7 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 2
+
     )
 
 Exercise.create(
@@ -96,7 +98,7 @@ Exercise.create(
     reps: "10 R/L",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 2
+
     )
 
 Exercise.create(
@@ -105,7 +107,7 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 2
+
     )
 
 Exercise.create(
@@ -114,7 +116,7 @@ Exercise.create(
     reps: "20",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 2
+
     )
 
 Exercise.create(
@@ -123,7 +125,7 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 2
+
     )
 
 Exercise.create(
@@ -132,7 +134,7 @@ Exercise.create(
     reps: "10",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 2
+
     )
 
 Exercise.create(
@@ -141,5 +143,5 @@ Exercise.create(
     reps: "1",
     sets: "4",
     timer: ":30 Rest Between Sets",
-    workout_id: 2
+
     )
