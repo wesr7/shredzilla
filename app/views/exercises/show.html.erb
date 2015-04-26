@@ -1,13 +1,1 @@
-<%= form_for([@workout, @exercise]) do |e| %>
-        <div class="form-group">
-            <p><%= f.label :name, 'Exercise name' %></p>
-            <p><%= f.text_area :name, class: 'form-control' %></p>
-            <p><%= f.label :hold, 'How long do I hold position?' %></p>
-            <p><%= f.text_area :hold, class: 'form-control'%></p>
-            <p><%= f.label :reps %></p>
-            <p><%= f.text_area :reps, class: 'form-control'%></p>
-            <p><%= f.label :sets %></p>
-            <p><%= f.text_area :sets, class: 'form-control'%></p>
-            <p><%= f.label :timer, 'Ex; "10:00" or "As fast as possible"' %></p>
-        </div>
-<% end %>
+<%= render "exercise_id/exercise_form" %>

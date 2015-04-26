@@ -10,6 +10,22 @@ class ExercisesController < ApplicationController
     end
 end
 
+def edit
+    @workout = Workout.find(params[:workout_id])
+    @exercise = @workout.exercise.find(params[:id])
+end
+
+def update
+    @workout = Workout.find(params[:workout_id])
+    @exercise = @workout.exercise.fine(params[:id])
+    if @exercise.update_attributes(exercises_params)
+        redirect_to(workout_path(@workout))
+    else
+        flash.now[:error] = "Could not update exercise"
+ end
+end
+
+
 def destroy
     @workout = Workout.find(params[:workout_id])
     @exercise = @workout.exercises.find(params[:id])

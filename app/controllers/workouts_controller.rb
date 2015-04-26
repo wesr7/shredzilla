@@ -26,8 +26,8 @@ end
 
 def edit
   @workout = Workout.find(params[:id])
-  @exercise = Exercise.find(params[:id])
-
+  @exercise = Exercise.new
+  @exercises = @workout.exercises
 end
 
 
