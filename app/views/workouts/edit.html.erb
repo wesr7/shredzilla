@@ -1,47 +1,61 @@
-<h1>Edit Your HIIT</h1>
-<h1><%= @workout.name %></h1>
 
 
-<table class="table table-bordered">
-<tr>
-    <td><strong>Exercise</strong></td>
-    <td><strong>Hold</strong></td>
-    <td><strong>Reps</strong></td>
-    <td><strong>Sets</strong></td>
-    <td><strong>Timer</strong></td>
-</tr>
-<% @exercises.each do |exercise| %>
-<tr>
-   <td><%= exercise.name %></td>
-   <td><%= exercise.hold %></td>
-   <td><%= exercise.reps %></td>
-   <td><%= exercise.sets %></td>
-   <td><%= exercise.timer %></td>
+<div class="container">
+  <div class="jumbotron">
+    <div class="container text-center text-uppercase">
+      <h1>Edit <%= @workout.name %></h1>
+    </div>
+  </div>
 
-   <td><%= link_to "Delete Exercise", [exercise.workout, exercise],
-   method: :delete,
-   data: { confirm: 'Are you sure?' } %></td>
-</tr>
-<% end %>
-</table>
 
-<%= render "exercise_form" %>
 
-<%= form_for @workout, url: "#{params[:id]}" do |f| %>
 
-  <%= @workout.note %>
+  <table class="table table-bordered well well-sm">
+    <tr>
+      <td><strong>Exercise</strong></td>
+      <td><strong>Hold</strong></td>
+      <td><strong>Reps</strong></td>
+      <td><strong>Sets</strong></td>
+      <td><strong>Timer</strong></td>
+    </tr>
+    <% @exercises.each do |exercise| %>
+    <tr>
+     <td><%= exercise.name %></td>
+     <td><%= exercise.hold %></td>
+     <td><%= exercise.reps %></td>
+     <td><%= exercise.sets %></td>
+     <td><%= exercise.timer %></td>
+
+     <td><%= link_to "Delete Exercise", [exercise.workout, exercise],
+       method: :delete,
+       data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+     <% end %>
+   </table>
+   <div class="row">
+    <div class="text-center">
+      <%= render "exercise_form" %>
+    </div>
+    </div><br />
+
+  <%= form_for @workout, url: "#{params[:id]}" do |f| %>
+
+  <div class="well well-sm" >
+    <p><%= @workout.note %></p>
+  </div>
+
   <p><%= f.submit  "Edit Note" %></p>
 
   <% end %>
 
-  <p><%= link_to 'Submit Your HIIT', workouts_path %></p>
- <p><%= link_to 'Delete Your HIIT', workout_path(@workout),
- method: :delete,
- data: { confirm: 'Are you sure?' } %></p>
+  <h4><%= link_to 'Submit Your HIIT', workouts_path %>
+  <%= link_to 'Delete Your HIIT', workout_path(@workout),
+   method: :delete,
+   data: { confirm: 'Are you sure?' } %></h4>
 
 
+ </div>
 
 
-
-<%= params %>
+ <%= params %>
 

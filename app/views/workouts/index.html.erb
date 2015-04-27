@@ -3,25 +3,34 @@
   <link href='https://fonts.googleapis.com/css?family=Ravi+Prakash' rel='stylesheet' type='text/css'>
 </head>
 
+<div class="container text-center text-uppercase">
 <div class="jumbotron">
-  <div class="container text-center text-uppercase">
-    <h1>Choose Your Workout</h1>
+    <h1>Check Out the HIIT's</h1>
   </div>
 </div>
 <div></div>
 <div class="container">
+<div class="row">
+<div class="col-sm-6 col-sm-offset-3">
+<div class="form-group">
   <% @workouts.each do |w| %>
-  <p><%= w.name %></p>
-  <p><%= w.day %></p>
-  <p><%= w.note %></p>
+
+   <div class="well well-sm" >
+  <h3>HIIT Title: <%= w.name %></h3>
+  <h3>HIIT Details: <%= w.note %></h3>
   <%= link_to 'Check it out', workout_path(w) %>
   <%= link_to 'Edit Workout', edit_workout_path(w) %>
+    </div>
 
   <% end %>
+
+  </div>
+  <h1 class="text-center well well-sm"><%= link_to 'Record Your HIIT', new_workout_path %></h1>
+  </div>
+  </div>
+
 </div>
 
-<p><%= link_to 'Record Your HIIT', new_workout_path %></p>
+
 
 <%= params %>
-
-<!-- modal edit note -->

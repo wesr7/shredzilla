@@ -1,6 +1,11 @@
-<h1><%=@workout.name %></h1>
 
+<div class="jumbotron">
+  <div class="container text-center text-uppercase">
+    <h1><%=@workout.name %></h1>
+  </div>
+</div>
 
+<div class="container">
 <table class="table table-bordered">
 <tr>
     <td><strong>Exercise</strong></td>
@@ -22,10 +27,16 @@
 
 
 
+  <div class="well well-sm" >
+
   <%= @workout.note %>
+
+  </div>
 
 
   <p><%= link_to "Check out more HIIT'S", workouts_path %></p>
+
+  </div>
 
 
 
