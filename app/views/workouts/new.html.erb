@@ -2,18 +2,24 @@
 <head>
   <link href='https://fonts.googleapis.com/css?family=Ravi+Prakash' rel='stylesheet' type='text/css'>
 </head>
-
+<div class="container">
 <div class="jumbotron">
   <div class="container text-center text-uppercase">
-    <h1>Record Your HIIT</h1>
+    <h1>Create Your HIIT</h1>
   </div>
 </div>
-
+</div>
+<div class="container">
 <%= form_for @workout do |w| %>
-    <p>Name:<%= w.text_field :name %></p>
-    <p>Note:<%= w.text_area :note %></p>
+<div class="form-group">
+    <p><strong><%= w.label :name %> </strong></p>
+    <p><%= w.text_field :name, class: "form-control" %></p>
+    <p><strong><%= w.label :note %></strong></p>
+    <p><%= w.text_area :name, class: "form-control" %></p>
     <%= w.submit 'Add Workout' %>
 <% end %>
+</div>
+</div>
 
 
 

@@ -20,19 +20,12 @@
 <% end %>
 </table>
 
-<%= render "exercise_form" %>
 
-<%= form_for @workout, url: "#{params[:id]}" do |f| %>
 
   <%= @workout.note %>
-  <p><%= f.submit  "Edit Note" %></p>
 
-  <% end %>
 
-  <p><%= link_to 'Submit Your HIIT', workouts_path %></p>
- <p><%= link_to 'Delete Your HIIT', workout_path(@workout),
- method: :delete,
- data: { confirm: 'Are you sure?' } %></p>
+  <p><%= link_to "Check out more HIIT'S", workouts_path %></p>
 
 
 
