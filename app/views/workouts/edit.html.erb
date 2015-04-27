@@ -38,15 +38,12 @@
     </div>
     </div><br />
 
-  <%= form_for @workout, url: "#{params[:id]}" do |f| %>
+
 
   <div class="well well-sm" >
     <p><%= @workout.note %></p>
   </div>
 
-  <p><%= f.submit  "Edit Note" %></p>
-
-  <% end %>
 
   <h4><%= link_to 'Submit Your HIIT', workouts_path %>
   <%= link_to 'Delete Your HIIT', workout_path(@workout),
@@ -57,5 +54,5 @@
  </div>
 
 
- <%= params %>
+
 
